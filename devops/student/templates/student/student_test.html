@@ -1,0 +1,38 @@
+{% extends 'base.html' %}
+
+
+{% block title %}
+    <title>Student-Test-DevOps</title>
+{% endblock %}
+
+
+
+
+{% block content %}
+
+    <div class="test">
+
+        <div class="terminal">
+            <iframe src="http://{{ ip }}"></iframe>
+        </div>
+
+        <div class="que_section">
+            <h4>Question:</h4>
+            <div class="question">
+                {{ que|safe }}
+            </div>
+        </div>
+    </div>
+    <div class="nextbtnform">
+
+        <form method="POST">
+            {% csrf_token %}
+            <input type="submit" class="btn btn-success" value="Next"><br><br>
+
+        </form>
+    </div>
+
+
+
+
+{% endblock %}

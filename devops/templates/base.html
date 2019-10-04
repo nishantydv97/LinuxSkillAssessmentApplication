@@ -1,0 +1,96 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    {%  block title %}
+  <title>DevOps</title>
+    {% endblock %}
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+     <!-- Latest compiled and minified CSS -->
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+
+<!-- jQuery library -->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+
+<!-- Popper JS -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+
+<!-- Latest compiled JavaScript -->
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+
+
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
+
+    <link rel="stylesheet" type="text/css" href="{% static 'css/base.css' %}">
+    <link rel="stylesheet" type="text/css" href="{% static 'css/business/business.css' %}">
+    <link rel="stylesheet" type="text/css" href="{% static 'css/student/student.css' %}">
+
+</head>
+<body>
+
+<!----------------------------Navbar------------------------------->
+
+ <nav class="navbar navbar-expand-md navbar-dark bg-primary">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <a class="navbar-brand" href="#">DevOps Skill Assessment</a>
+    </div>
+    <ul class="nav navbar-nav navbar-right">
+      <li class="active"><a href="{% url 'home' %}"><span class="fas fa-home"></span> Home</a></li>
+
+    {% if user.is_authenticated and user.is_student %}
+            <li><a href="{%  url 'student:student_home' %}"><span class="fas fa-user"></span> For Developers</a></li>
+        {% else %}
+            <li><a href="{%  url 'logout' %}"><span class="fas fa-user"></span> For Developers</a></li>
+        {% endif %}
+
+     {% if user.is_authenticated and user.is_business %}
+            <li><a href="{%  url 'business:business_home' %}"><span class="fas fa-briefcase"></span> For Organizations</a></li>
+        {% else %}
+            <li><a href="{%  url 'logout' %}"><span class="fas fa-briefcase"></span> For Organizations</a></li>
+        {% endif %}
+
+
+        <li><a href="#"><span class="fas fa-info"></span> About Us</a></li>
+        {% if user.is_authenticated %}
+            <span class="mr-2">||</span>
+            <li class="mr-4"><span class="fas fa-user"></span> {% filter upper %} {{ user.username }} {% endfilter %}</li>
+            <span class="mr-4">||</span>
+            <li><a href="{% url 'logout' %}"> <span class="fas fa-sign-out-alt"></span> Logout</a></li>
+        {% else %}
+            <li><a href="{% url 'signup' %}"> <span class="fas fa-user-plus "></span> Signup</a></li>
+            <li><a href="{%  url 'login' %}"> <span class="fas fa-sign-in-alt"></span> Login</a></li>
+        {% endif %}
+
+    </ul>
+  </div>
+</nav>
+
+
+
+
+
+
+
+
+<!------------------------------ body --------------------------------------->
+
+
+<div class="container-fluid">
+    {% if messages %}
+        {% for message in messages %}
+            <div class ="alert alert-{{ message.tags }}">
+            {{ message }}
+            </div>
+        {% endfor %}
+    {% endif %}
+    {% block content %}
+    {% endblock %}
+</div>
+
+<!---------------------------------footer--------------------------------------->
+
+
+</body>
+</html>

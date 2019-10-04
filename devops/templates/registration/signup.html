@@ -1,0 +1,25 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+
+
+
+
+
+{% comment %}{% if user.is_authenticated %}
+  <meta http-equiv="REFRESH" content="0;url=#">
+{% endif %}{% endcomment %}
+<div>
+
+    <div class="form_heading">
+          <h2>Sign up for a free account</h2>
+    </div>
+    <div class="signupinfo">
+      <p class="lead">Select below the type of account you want to create</p>
+      <a href="{% url 'student_signup' %}" class="btn btn-success btn-lg ml-5" role="button">I'm a student</a>
+      <a href="{% url 'business_signup' %}" class="btn btn-secondary btn-lg ml-5" role="button">I'm a Organization</a>
+    </div>
+</div>
+
+{% endblock %}

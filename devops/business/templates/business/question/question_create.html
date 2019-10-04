@@ -1,0 +1,26 @@
+{% extends 'base.html' %}
+
+{% load crispy_forms_tags %}
+
+{% block content %}
+    <div class="que_window">
+
+        <div class="que_heading bg-primary">
+            <h2>Create Question</h2>
+        </div>
+
+        <div class="que_detail">
+            <form method="POST" enctype="multipart/form-data">
+                {% csrf_token %}
+                <br>
+                {{ form|crispy }}
+                <div class="text-center">
+                    <input type="submit" class="btn btn-success " value="Create"><br><br>
+                </div>
+
+
+            </form>
+        </div>
+    </div>
+
+{% endblock %}

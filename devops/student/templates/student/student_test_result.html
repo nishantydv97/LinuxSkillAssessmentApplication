@@ -1,0 +1,47 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+    {% comment %}
+{% if user.is_authenticated %}
+  <meta http-equiv="REFRESH" content="0;url=#">
+{% else %}
+    <meta http-equiv="REFRESH" content="0;url=signup">
+{% endif %}
+{% endcomment %}
+    <div>
+
+        <div class="form_heading">
+            <h2>Result</h2>
+        </div>
+
+        <div class="test_details">
+            <h5>Test ID: {{ test_id }}</h5>
+            <h5>Test Name: {{ test_name }}</h5>
+            <h5>Total Marks: {{ result }}</h5>
+        </div>
+        <div class="container">
+
+
+            <table class="table table-striped">
+                <thead>
+                <tr>
+                    <th>Questions</th>
+                    <th>Marks</th>
+                </tr>
+                </thead>
+                <tbody>
+                {% for que in test_result %}
+                    <tr>
+                        <td><a href="{{ que.queId.get_absolute_url }}">{{ que.queId }}</a></td>
+                        <td>{{ que.result }}</td>
+                    </tr>
+                {% endfor %}
+                </tbody>
+            </table>
+        </div>
+
+
+    </div>
+
+{% endblock %}

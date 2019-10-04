@@ -1,0 +1,54 @@
+.que_window
+{
+    margin: 20px 100px auto 100px;
+}
+
+.que_heading
+{
+    text-align: center;
+    padding: 5px;
+    border: black 1px solid;
+    border-radius: 3px;
+    color: white;
+}
+.que_detail
+{
+    margin-top: 20px;
+
+}
+.que_detail p {
+    border: black 1px solid;
+    padding: 5px;
+    font-size: 17px;
+    font-family: inherit;
+
+}
+
+.que_detail .btn
+{
+    float: right;
+}
+
+.test_details h4, .test_details h4
+{
+    text-align: center;
+    text-decoration: underline;
+}
+.container
+{
+    margin-top: 30px;
+}
+
+.table thead
+{
+    background-color: #5b80b2;
+}
+.table thead tr th,.table tbody tr td
+{
+    text-align: center;
+}
+
+.table thead,.table tbody
+{
+    border: 1px solid #003366;
+}

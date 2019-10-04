@@ -1,0 +1,35 @@
+{% extends 'base.html' %}
+
+{% load crispy_forms_tags %}
+
+
+{%  block title %}
+    <title>Login-DevOps</title>
+{% endblock %}
+
+
+
+
+{% block content %}
+{% comment %}
+    {% if user.is_authenticated %}
+          <meta http-equiv="REFRESH" content="0;url=">
+    {% endif %}
+{% endcomment %}
+
+<div class="form_heading">
+    <h2>Login</h2>
+</div>
+<div class="form">
+<form method="POST">
+    {% csrf_token %}
+    <br>
+    {{ form|crispy }}
+    <input type="submit" class="btn btn-primary" value="Login" name="lslogin" ><br/><br/>
+    <h5>new user? <a href="{% url 'signup' %}">Sign Up Now </a> to join us </h5>
+</form>
+</div>
+
+
+
+{% endblock %}

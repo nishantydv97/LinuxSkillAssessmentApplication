@@ -1,0 +1,44 @@
+
+.container
+{
+    display: flex;
+  justify-content: center;
+}
+.loading
+{
+    margin-top: 200px;
+}
+
+.test
+{
+    margin-top: 30px;
+}
+
+.terminal iframe
+{
+    float: left;
+    width: 63%;
+    height: 500px;
+}
+.que_section
+{
+    padding: 10px;
+    float: right;
+    width: 35%;
+    border: 1px solid black;
+}
+.que_section h4
+{
+    font-size: 16px;
+    font-weight: bolder;
+}
+.test_details h5
+{
+    text-align: center;
+    text-decoration: underline;
+}
+
+.nextbtnform
+{
+    margin: 50px 50px auto 50px;
+}

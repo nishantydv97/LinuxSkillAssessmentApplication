@@ -1,0 +1,38 @@
+{% extends 'base.html' %}
+
+
+
+
+
+
+
+{% block content %}
+
+    {% comment %}
+{% if user.is_authenticated %}
+  <meta http-equiv="REFRESH" content="0;url=#">
+{% else %}
+    <meta http-equiv="REFRESH" content="0;url=signup">
+{% endif %}
+{% endcomment %}
+    <div class="que_window">
+
+        <div class="que_heading bg-primary">
+            <h2>Test Details</h2>
+        </div>
+        <div class="que_detail">
+            <h4 class="text-center"><u>Test ID : {{ object.id }}</u></h4>
+            <h4 class="text-center"><u>Test Name : {{ object.name }}</u></h4>
+             <a href="{% url 'business:test_result' id=object.id  %}" class="btn btn-secondary btn-lg ml-5" role="button">View Result</a>
+            <h4><u>Questions :</u></h4>
+            <div>
+                <ol type="1">
+                    {% for question in object.questions.all %}
+                        <li><a href="{% url 'business:question_details' id=question.id %}">{{ question }}<br/></a></li>
+                    {% endfor %}
+                </ol>
+            </div>
+        </div>
+    </div>
+
+{% endblock %}

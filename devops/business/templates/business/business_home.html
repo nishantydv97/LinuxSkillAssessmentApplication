@@ -1,0 +1,24 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+{% comment %}
+{% if user.is_authenticated %}
+  <meta http-equiv="REFRESH" content="0;url=#">
+{% else %}
+    <meta http-equiv="REFRESH" content="0;url=signup">
+{% endif %}
+{% endcomment %}
+<div>
+
+    <div class="form_heading">
+          <h2>Welcome, {{ user.username }}</h2>
+    </div>
+    <div class="signupinfo">
+      <p class="lead">Please select</p>
+      <a href="{% url 'business:test_create' %}" class="btn btn-success btn-lg ml-5" role="button">Create Test</a>
+      <a href="{% url 'business:test_list' %}" class="btn btn-secondary btn-lg ml-5" role="button">View Results</a>
+    </div>
+</div>
+
+{% endblock %}

@@ -1,0 +1,51 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+{% comment %}
+{% if user.is_authenticated %}
+  <meta http-equiv="REFRESH" content="0;url=#">
+{% else %}
+    <meta http-equiv="REFRESH" content="0;url=signup">
+{% endif %}
+{% endcomment %}
+<div>
+
+    <div class="form_heading">
+          <h2>Result</h2>
+    </div>
+    <div class="test_details">
+        <h4>Test ID: {{ object_list.first.testId.id }}</h4>
+        <h4>Test Name: {{ object_list.first.testId.name }}</h4>
+    </div>
+
+
+    <div class="container ">
+
+
+  <table class="table table-striped">
+    <thead>
+      <tr>
+        <th>Sr. No</th>
+          <th>Student Name</th>
+        <th>Marks</th>
+      </tr>
+    </thead>
+    <tbody>
+    {% for test_taken in object_list %}
+        <tr>
+
+            <td>{{ forloop.counter }}</td>
+           <td>{{ test_taken.studId.get_user.get_full_name }}</td>
+            <td>{{ test_taken.result }}</td>
+
+      </tr>
+    {% endfor %}
+    </tbody>
+  </table>
+</div>
+
+
+</div>
+
+{% endblock %}
